@@ -22,15 +22,3 @@ app.listen(PORT, ()=>{
 app.use('/home', (req,res)=>{
      res.send('<h1>Hello world</h1>')
 })
-app.use('/home', (req,res)=>{
-    res.send('<h1>Hello world</h1>')
-})
-app.use('/home', (req,res)=>{
-    res.send('<h1>Hello world</h1>')
-})
-app.use('/home', (req,res)=>{
-    res.send('<h1>Hello world</h1>')
-})
-app.use('/home', (req,res)=>{
-    res.send('<h1>Hello world</h1>')
-})
