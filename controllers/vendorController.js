@@ -44,6 +44,7 @@ const vendorLogin=async(req, res)=>{
         console.log(email,"this is token", token)
     }catch(error){
         console.error(error);
+        res.status(500).json({error:"Internal Server error"})
     }
 }
 

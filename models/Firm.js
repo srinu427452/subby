@@ -14,8 +14,34 @@ const firmShema= new mongoose.Schema({
     category:{
         type:[
             {
-                type:String
+                type:String,
+                enum:['veg','non-veg']
             }
         ]
-    }
+    },
+    region:{
+        type:[
+            {
+                type:String,
+                enum:['south-India','north-India','chinese','bakery']
+            }
+        ]
+    },
+    offer:{
+        type:String,
+
+    },
+    image:{
+        type:String
+    },
+    vendor:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'vendor'
+        }
+    ]
 })
+
+const Firm=mongoose.model('Firm',firmShema)
+
+module.exports=Firm
