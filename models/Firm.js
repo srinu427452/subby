@@ -1,47 +1,44 @@
+const mongoose = require('mongoose');
 
-const mongoose=require('mongoose');
-
-const firmShema= new mongoose.Schema({
-    firstname:{
-        type:String,
-        require:true,
-        unique:true
+const firmSchema = new mongoose.Schema({
+    firmName: {
+        type: String,
+        required: true,
+        unique: true
     },
-    area:{
-        type:String,
-        require:true
+    area: {
+        type: String,
+        required: true,
     },
-    category:{
-        type:[
-            {
-                type:String,
-                enum:['veg','non-veg']
-            }
-        ]
+    category: {
+        type: [{
+            type: String,
+            enum: ['veg', 'non-veg']
+        }]
     },
-    region:{
-        type:[
-            {
-                type:String,
-                enum:['south-India','north-India','chinese','bakery']
-            }
-        ]
+    region: {
+        type: [{
+            type: String,
+            enum: ['south-indian', 'north-indian', 'chinese', 'bakery']
+        }]
     },
-    offer:{
-        type:String,
+    offer: {
+        type: String,
 
     },
-    image:{
-        type:String
+    image: {
+        type: String
     },
-    vendor:[
-        {
-            type:mongoose.Schema.Types.ObjectId,
-            ref:'vendor'
-        }
-    ]
-})
+    vendor: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Vendor'
+    }],
+    products: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product'
+    }]
+});
 
-const Firm=mongoose.model('Firm',firmShema)
+const Firm = mongoose.model('Firm', firmSchema);
 
-module.exports=Firm
+module.exports = Firm
